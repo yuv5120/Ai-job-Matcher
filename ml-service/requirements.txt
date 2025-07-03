@@ -1,0 +1,6 @@
+fastapi
+uvicorn
+spacy
+PyMuPDF
+requests
+redis

@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Resume {
+  id         String   @id @default(cuid())
+  userId     String
+  name       String
+  email      String
+  skills     String[]  
+  experience String
+  createdAt  DateTime @default(now())
+}
+
+model Job {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  skills      String[] // required skills
+  createdAt   DateTime @default(now())
+  postedBy    String   // Firebase UID
+}
